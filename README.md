@@ -1,6 +1,6 @@
-# Framework for CMPM 121
+# CMPM 121 Game
 
-This framework is for the class CMPM 121 - Game Development Patterns. It was developed in Unity version 6000.0.23f, but should also work in other Unity versions. 
+This is a description for the game. 
 
 ## Artwork
 
