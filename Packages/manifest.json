@@ -2,9 +2,15 @@
   "dependencies": {
     "com.unity.collab-proxy": "2.7.1",
     "com.unity.feature.2d": "2.0.1",
+<<<<<<< HEAD
     "com.unity.ide.rider": "3.0.35",
     "com.unity.ide.visualstudio": "2.0.23",
     "com.unity.inputsystem": "1.14.0",
+=======
+    "com.unity.ide.rider": "3.0.31",
+    "com.unity.ide.visualstudio": "2.0.22",
+    "com.unity.inputsystem": "1.13.1",
+>>>>>>> d98c5044d11f7961a49a41fb490136f48f3909d5
     "com.unity.multiplayer.center": "1.0.0",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
     "com.unity.render-pipelines.universal": "17.0.4",
