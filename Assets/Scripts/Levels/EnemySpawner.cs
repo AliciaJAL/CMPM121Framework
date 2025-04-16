@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -76,4 +77,62 @@ public class EnemySpawner : MonoBehaviour
         GameManager.Instance.AddEnemy(new_enemy);
         yield return new WaitForSeconds(0.5f);
     }
+
+	public class Enemy {
+		public string name;
+		public int sprite;
+		public int hp;
+        public int speed;
+       public int damage;
+
+	}
+
+	public class Level {
+		public string name;
+		public int waves;
+	}
+
+	public class Spawn {
+		public string enemy;
+        public int count;
+        public int hp;
+        public int delay;
+		public List<int> sequence;
+        public string location;
+
+	}
+
+
+	public Dictionary<string, Enemy> enemyJSONreader() {
+		// create dictionary
+		Dictionary<string, Enemy> enemy_types = new Dictionary<string, Enemy>();
+		
+		// loads enemies.json
+		var enemytext = Resources.Load<TextAsset>("enemies");
+
+		// parse the JSON text into a token that can be looped through
+		JToken jo = JToken.Parse(enemytext.text);
+		foreach (var enemy in jo) {
+			Enemy en = enemy.ToObject<Enemy>(); // convert JSON elements to an Enemny object
+			enemy_types[en.name] = en;	// adds the enemy name 
+		}
+		return enemy_types;
+	}
+
+	public Dictionary<string, Level> levelJSONreader() {
+		// create dictionary
+		Dictionary<string, Level> level_types = new Dictionary<string, Level>();
+		
+		// loads enemies.json
+		var leveltext = Resources.Load<TextAsset>("levels");
+
+		// parse the JSON text into a token that can be looped through
+		JToken jo = JToken.Parse(leveltext.text);
+		foreach (var button in jo) {
+			Level le = button.ToObject<Level>(); // convert JSON elements to an Enemny object
+			level_types[le.name] = le;	// adds the enemy name 
+		}
+		return level_types;
+	}
+
 }
